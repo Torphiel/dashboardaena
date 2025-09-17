@@ -42,7 +42,7 @@ st.markdown("""
 def cargar_datos():
     """Cargar datos de licitaciones desde archivo Excel"""
     try:
-        excel_file = "Data_licitaciones/2024_AENA.xlsx"
+        excel_file = "2024_AENA.xlsx"
         if os.path.exists(excel_file):
             df = pd.read_excel(excel_file)
             
@@ -705,3 +705,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
