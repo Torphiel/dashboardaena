@@ -42,7 +42,7 @@ st.markdown("""
 def cargar_datos():
     """Cargar datos de licitaciones desde archivo Excel"""
     try:
-        excel_file = "2024_AENA.xlsx"
+        excel_file = "Data_licitaciones/2024_AENA.xlsx"
         if os.path.exists(excel_file):
             df = pd.read_excel(excel_file)
             
@@ -581,13 +581,14 @@ def main():
     mostrar_metricas_principales(df_filtrado)
     
     # Crear pestañas
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
         "📅 Análisis Temporal", 
         "🏢 Por Aeropuerto", 
         "🔧 Por Tipo de Obra", 
         "🏭 Por Empresa", 
         "📉 Por Baja",
-        "📊 Datos"
+        "📊 Datos",
+        "🤖 IA"
     ])
     
     with tab1:
@@ -702,7 +703,14 @@ def main():
     
     with tab6:
         mostrar_tabla_detallada(df_filtrado)
+    
+    with tab7:
+        st.subheader("🤖 IA")
+        
+        # Botón para GPT Competenc-IA
+        if st.button("GPT Competenc-IA", type="primary"):
+            st.markdown(f'<meta http-equiv="refresh" content="0; url=https://chatgpt.com/g/g-68db911ff44481919538e7bc1da992ff-competenc-ia">', unsafe_allow_html=True)
+            st.markdown('<script>window.open("https://chatgpt.com/g/g-68db911ff44481919538e7bc1da992ff-competenc-ia", "_blank");</script>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
-
